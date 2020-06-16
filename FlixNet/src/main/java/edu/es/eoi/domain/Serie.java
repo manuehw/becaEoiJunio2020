@@ -17,7 +17,7 @@ public class Serie implements Playable {
 
 	@Override
 	public void play() {
-		System.out.println("Soy un serie y me pongo en reproduccion");
+		System.out.println("reproduciendo la serie: "+ name);
 	}
 	
 }

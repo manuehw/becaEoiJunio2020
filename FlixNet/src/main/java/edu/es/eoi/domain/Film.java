@@ -17,8 +17,7 @@ public class Film implements Playable{
 	
 	@Override
 	public void play() {
-		System.out.println("Soy un peli y me pongo en reproduccion");
-		
+		System.out.println("reproduciendo la pelicula :"+ name);		
 	}
 
 	
