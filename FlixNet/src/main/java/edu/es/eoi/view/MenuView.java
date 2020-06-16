@@ -18,6 +18,7 @@ public class MenuView {
 		
 		for (int i = 0; i < App.playList.length; i++) {
 			if(App.playList[i]!=null){
+				//TODO cambiar casting
 				System.out.println(i+"-"+((Film)App.playList[i]).getName());
 			}
 		}
