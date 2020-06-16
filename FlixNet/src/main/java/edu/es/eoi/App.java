@@ -15,9 +15,9 @@ public class App {
 		Playable play= new Film();
 		((Film)play).getName();
 		
-		Film film= new Film();
+		Film film= new Film();	
 		Serie serie= new Serie();
-		Song song= new Song();
+		Song song= new Song();	
 		
 		addToPlaylist(film);
 		addToPlaylist(serie);
