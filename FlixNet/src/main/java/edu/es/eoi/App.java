@@ -7,9 +7,11 @@ import edu.es.eoi.interfaces.Playable;
 import edu.es.eoi.service.PlayService;
 
 public class App {
+	
+	public static Playable[] playList= new Playable[10];
 
 	public static void main(String[] args) {
-			
+							
 		Playable play= new Film();
 		((Film)play).getName();
 		
@@ -17,12 +19,21 @@ public class App {
 		Serie serie= new Serie();
 		Song song= new Song();
 		
-		PlayService.play(film);
-		PlayService.play(serie);
-		PlayService.play(song);
+		addToPlaylist(film);
+		addToPlaylist(serie);
+		addToPlaylist(song);
+		
+		PlayService.play(playList);
+		
+	}
 	
-	
-
+	public static void addToPlaylist(Playable playable) {		
+		for (int i = 0; i < playList.length; i++) {
+			  if(playList[i]==null) {
+				  playList[i]=playable;
+				  return;
+			  }
+		}		
 	}
 
 }
