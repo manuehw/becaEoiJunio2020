@@ -2,11 +2,10 @@ package edu.es.eoi;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-
 
 public class CollectionExamples {
 
@@ -135,6 +134,11 @@ public class CollectionExamples {
 		Collections.sort(phonesList);
 		
 		//Forma 1 Complicada
+		//recorrer los elementos, montar una lista temporal, ir moviendolos para alante o para atras
+		//segun indice
+		
+		//Forma 2 Comparable
+		System.out.println("Con comparator");
 		
 		Contact c1= new Contact();
 		c1.setName("Jose");
@@ -155,10 +159,25 @@ public class CollectionExamples {
 		contactos.add(c3);
 		contactos.add(c4);
 		
-		Collections.sort(contactos);
+		Comparator<Contact> cmp = new Comparator<Contact>() {
+			public int compare(Contact o1, Contact o2) {				
+				return o1.getYear().compareTo(o2.getYear());
+			}
+	    };
 		
-		contactos.stream().forEach(c-> System.out.println(c.getName()+", year: "+ c.getYear() ));
+		Collections.sort(contactos,cmp);
 		
+		contactos.stream().forEach(c-> System.out.println(c.getName()+", year: "+ c.getYear()));
+		
+		//Forma 3, utilizar streams
+		System.out.println("Con streams");
+		
+		contactos.stream().
+		          sorted(Comparator.comparing(Contact::getYear).
+				  thenComparing(Comparator.comparing(Contact::getMonth).
+				  thenComparing(Comparator.comparing(Contact::getName)))).
+		          forEach(c->System.out.println(c.getName()+", year: "+ c.getYear()));
+	
 	}
-
 }
+
