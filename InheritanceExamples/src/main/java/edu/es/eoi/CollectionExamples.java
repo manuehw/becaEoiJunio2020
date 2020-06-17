@@ -72,6 +72,32 @@ public class CollectionExamples {
 		//4 Imprimir todos los telefonos de un contacto
 		//***************FIN SET*************
 		
+		//1
+		Contact contact= new Contact();
+		contact.setName("Jose");
+		contact.setSurname("Jimenez");		
+		
+		Set<String> phones= new HashSet<String>();
+		phones.add("612334567");
+		phones.add("666666666");
+		phones.add("777777777");
+		
+		contact.setTelephones(phones);
+		//2
+		String numero="666666666";
+		
+		for (String phoneNumber : contact.getTelephones()) {
+			if(phoneNumber.equals(numero)) {
+				System.out.println("estoy llamando al " + phoneNumber);
+			}
+		}
+		//3
+		contact.getTelephones().add("888888888");
+		//4		
+		for (String phone : phones) {
+			System.out.println("Tlf: "+phone);
+		}		
+		
 		//LIST (ARRAYLIST)
 		//1 crear Contacto (nombre apellidos) y meterle 3 telefonos
 		//2 localizar el tlf a llamar (llamar-> syso(he llamado al numero .....)
