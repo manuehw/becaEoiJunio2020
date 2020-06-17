@@ -77,12 +77,12 @@ public class CollectionExamples {
 		contact.setName("Jose");
 		contact.setSurname("Jimenez");		
 		
-		Set<String> phones= new HashSet<String>();
-		phones.add("612334567");
-		phones.add("666666666");
-		phones.add("777777777");
+		Set<String> phonesSet= new HashSet<String>();
+		phonesSet.add("612334567");
+		phonesSet.add("666666666");
+		phonesSet.add("777777777");
 		
-		contact.setTelephonesSet(phones);
+		contact.setTelephonesSet(phonesSet);
 		//2
 		String numero="666666666";
 		
@@ -94,7 +94,7 @@ public class CollectionExamples {
 		//3
 		contact.getTelephonesSet().add("888888888");
 		//4		
-		for (String phone : phones) {
+		for (String phone : phonesSet) {
 			System.out.println("Tlf: "+phone);
 		}		
 		
@@ -105,9 +105,28 @@ public class CollectionExamples {
 		//4 Imprimir todos los telefonos de un contacto
 		//***************FIN LIST*************
 		
+		List<String> phonesList= new ArrayList<String>();
+		phonesList.add("612334567");
+		phonesList.add("666666666");
+		phonesList.add("777777777");
 		
+		contact.setTelephonesList(phonesList);
 		
+		//2 llamar al numero 666666666
 		
+		String phoneNumber = contact.getTelephonesList().get(contact.getTelephonesList().indexOf("666666666"));
+		
+		System.out.println("estoy llamando al " + phoneNumber);
+		
+		//3 
+		if(!contact.getTelephonesList().contains("88888888")) {
+			contact.getTelephonesList().add("888888888");
+		}
+		
+		//4		
+		for (String phone : phonesList) {
+			System.out.println(phone);
+		}
 
 	}
 
