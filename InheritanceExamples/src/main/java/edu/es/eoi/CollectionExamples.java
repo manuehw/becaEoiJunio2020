@@ -1,10 +1,12 @@
 package edu.es.eoi;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+
+
 
 public class CollectionExamples {
 
@@ -128,6 +130,35 @@ public class CollectionExamples {
 			System.out.println(phone);
 		}
 
+		//Ejercicio Ordenacion
+		
+		Collections.sort(phonesList);
+		
+		//Forma 1 Complicada
+		
+		Contact c1= new Contact();
+		c1.setName("Jose");
+		c1.setYear(2000);
+		Contact c2= new Contact();
+		c2.setName("Maria");
+		c2.setYear(1995);
+		Contact c3= new Contact();
+		c3.setName("Pedro");
+		c3.setYear(1998);
+		Contact c4= new Contact();
+		c4.setName("Jose");
+		c4.setYear(2005);
+		
+		List<Contact> contactos= new ArrayList<Contact>();
+		contactos.add(c1);
+		contactos.add(c2);
+		contactos.add(c3);
+		contactos.add(c4);
+		
+		Collections.sort(contactos);
+		
+		contactos.stream().forEach(c-> System.out.println(c.getName()+", year: "+ c.getYear() ));
+		
 	}
 
 }
