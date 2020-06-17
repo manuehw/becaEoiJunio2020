@@ -82,17 +82,17 @@ public class CollectionExamples {
 		phones.add("666666666");
 		phones.add("777777777");
 		
-		contact.setTelephones(phones);
+		contact.setTelephonesSet(phones);
 		//2
 		String numero="666666666";
 		
-		for (String phoneNumber : contact.getTelephones()) {
+		for (String phoneNumber : contact.getTelephonesSet()) {
 			if(phoneNumber.equals(numero)) {
 				System.out.println("estoy llamando al " + phoneNumber);
 			}
 		}
 		//3
-		contact.getTelephones().add("888888888");
+		contact.getTelephonesSet().add("888888888");
 		//4		
 		for (String phone : phones) {
 			System.out.println("Tlf: "+phone);

@@ -1,5 +1,6 @@
 package edu.es.eoi;
 
+import java.util.List;
 import java.util.Set;
 
 import lombok.Getter;
@@ -11,5 +12,6 @@ public class Contact {
 
 	private String name;
 	private String surname;
-	private Set<String> telephones;
+	private Set<String> telephonesSet;
+	private List<String> telephonesList;
 }
