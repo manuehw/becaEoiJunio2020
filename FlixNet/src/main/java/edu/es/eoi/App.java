@@ -1,5 +1,7 @@
 package edu.es.eoi;
 
+import java.util.Collection;
+
 import edu.es.eoi.controller.PlayController;
 import edu.es.eoi.domain.Film;
 import edu.es.eoi.interfaces.Playable;
@@ -12,11 +14,9 @@ public class App {
 	public static PlayService service= new PlayService();
 	public static PlayController controller= new PlayController(service);	
 
-	public static void main(String[] args) {
-	
+	public static void main(String[] args) {	
 		createPlayOffer();
-		MenuView.printMenu();
-		
+		MenuView.printMenu();		
 	}
 	
 	public static void createPlayOffer() {		

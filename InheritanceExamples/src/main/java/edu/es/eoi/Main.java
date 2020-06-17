@@ -1,5 +1,7 @@
 package edu.es.eoi;
 
+import java.math.BigDecimal;
+
 import edu.es.eoi.service.ProductoService;
 
 public class Main {
@@ -7,6 +9,7 @@ public class Main {
 	public static Product[] content=new Product[200];
 	public final static Double NUMERO_PI=3.14;
 	
+		
 	public static void main(String[] args) {
 
 		Product product1 = new Computer(1, "HP", "descripcion","Windows",800);
@@ -17,12 +20,17 @@ public class Main {
 			
 		System.out.println(product1.calculatePrice()+"€");
 		System.out.println(product2.calculatePrice()+"€");
-		
-		Prizable p=product1;
-		Computer c=(Computer) product1;
-		Product pr=product1;
-		Object o=product1;
-		
+			
+		//Autoboxing y unboxing
+		int a=0;
+		double numero=5.0;
+		boolean condicion=false;
+	
+		Integer entero= a;
+		int b=entero;
+	
+		System.out.println(entero.toString());
+						
 	}
 
 }

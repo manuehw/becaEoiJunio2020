@@ -7,7 +7,7 @@ public class ProductoService {
 	
 	public static void printProduct(final Product product) {
 		
-		System.out.println(product);					
+		System.out.println(product);				
 	}
 	
 	public static void printProduct(final Product product, boolean isTrue) {
@@ -18,7 +18,6 @@ public class ProductoService {
 	
 	public void getTaxes(Prizable prizable) {
 		
-	}
-	
+	}	
 
 }

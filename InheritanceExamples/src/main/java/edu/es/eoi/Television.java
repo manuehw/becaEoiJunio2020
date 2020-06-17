@@ -2,13 +2,13 @@ package edu.es.eoi;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 public final class Television extends Product{
-
+	
+	private Person person;
+	
 	public Television(Integer id, String name, String description, double price) {
 		super(id, name, description, price);	
 	}
@@ -21,8 +21,7 @@ public final class Television extends Product{
 	}
 
 	@Override
-	public double calculatePrice() {
-		
+	public double calculatePrice() {	
 		return this.getPrice()*1.10;
 	}
 
