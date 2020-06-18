@@ -1,7 +1,5 @@
 package edu.es.eoi;
 
-import java.math.BigDecimal;
-
 import edu.es.eoi.service.ProductoService;
 
 public class Main {
