@@ -34,7 +34,7 @@ public class MenuView {
 		Scanner scanner= new Scanner(System.in);
 		int opcion=scanner.nextInt();
 		
-		App.playController.play(peliculasList.get(opcion));
+		App.filmController.play(peliculasList.get(opcion).getName());
 		
 		MenuView.printMenu();
 		
