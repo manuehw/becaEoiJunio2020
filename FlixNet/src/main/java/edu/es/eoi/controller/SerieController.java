@@ -1,5 +1,7 @@
 package edu.es.eoi.controller;
 
+import java.util.Map;
+
 import edu.es.eoi.domain.Serie;
 import edu.es.eoi.service.SerieService;
 import lombok.AllArgsConstructor;
@@ -29,4 +31,7 @@ public class SerieController {
 			service.updateSerie(serie);
 		}
 		
+		public Map<String,Serie> findAll(){
+			return service.findAll();
+		}
 	}

@@ -1,34 +1,29 @@
 package edu.es.eoi.repository;
 
+import java.util.Map;
+
 import edu.es.eoi.App;
 import edu.es.eoi.domain.Film;
-import edu.es.eoi.interfaces.Playable;
 
 public class FilmRepository {
 
 	public void create(Film film) {	
-		App.films.add(film);		
+		App.films.put(film.getName(), film);
 	}	
 	
-	public Film read(String name) {		
-		Film film = null;
-		for (Playable temp : App.films) {
-			if(((Film)temp).getName().equals(name)) {
-				film=(Film) temp;
-			}
-		}		
-		return film;
+	public Film read(String name) {			
+		return App.films.get(name);
 	}	
 	
 	public void update(Film film) {		
-		for (Playable temp : App.films) {
-			if(((Film)temp).equals(film)) {
-				film=(Film) temp;
-			}
-		}
+		App.films.put(film.getName(), film);
 	}
 	
 	public void delete(Film film) {
-		App.films.remove(film);
+		App.films.remove(film.getName());
 	}	
+	
+	public Map<String,Film> readAll(){
+		return App.films;
+	}
 }

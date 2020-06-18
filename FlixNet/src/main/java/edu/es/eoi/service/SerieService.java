@@ -1,5 +1,7 @@
 package edu.es.eoi.service;
 
+import java.util.Map;
+
 import edu.es.eoi.domain.Serie;
 import edu.es.eoi.repository.SerieRepository;
 import lombok.AllArgsConstructor;
@@ -29,5 +31,8 @@ public class SerieService {
 		repository.update(film);
 	}
 	
+	public Map<String,Serie> findAll(){
+		return repository.readAll();
+	}
 
 }
