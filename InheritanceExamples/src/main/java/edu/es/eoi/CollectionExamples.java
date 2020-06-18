@@ -1,10 +1,13 @@
 package edu.es.eoi;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class CollectionExamples {
@@ -91,7 +94,7 @@ public class CollectionExamples {
 			if(phoneNumber.equals(numero)) {
 				System.out.println("estoy llamando al " + phoneNumber);
 			}
-		}
+		}	
 		//3
 		contact.getTelephonesSet().add("888888888");
 		//4		
@@ -135,23 +138,27 @@ public class CollectionExamples {
 		
 		//Forma 1 Complicada
 		//recorrer los elementos, montar una lista temporal, ir moviendolos para alante o para atras
-		//segun indice
-		
+		//segun indice	
+			
 		//Forma 2 Comparable
 		System.out.println("Con comparator");
 		
 		Contact c1= new Contact();
 		c1.setName("Jose");
 		c1.setYear(2000);
+		c1.setNif("11111111A");
 		Contact c2= new Contact();
 		c2.setName("Maria");
 		c2.setYear(1995);
+		c2.setNif("22222222B");
 		Contact c3= new Contact();
 		c3.setName("Pedro");
 		c3.setYear(1998);
+		c3.setNif("33333333C");
 		Contact c4= new Contact();
 		c4.setName("Jose");
 		c4.setYear(2005);
+		c4.setNif("44444444D");
 		
 		List<Contact> contactos= new ArrayList<Contact>();
 		contactos.add(c1);
@@ -159,8 +166,9 @@ public class CollectionExamples {
 		contactos.add(c3);
 		contactos.add(c4);
 		
-		//opcion algo mejor, es declarar el comparator a la hora de llamar al sort, y no meterlo en la entidad
+//		Collections.sort(contactos);
 		
+		//opcion algo mejor, es declarar el comparator a la hora de llamar al sort, y no meterlo en la entidad
 		Comparator<Contact> cmp = new Comparator<Contact>() {
 			public int compare(Contact o1, Contact o2) {				
 				return o1.getYear().compareTo(o2.getYear());
@@ -172,14 +180,52 @@ public class CollectionExamples {
 		contactos.stream().forEach(c-> System.out.println(c.getName()+", year: "+ c.getYear()));
 		
 		//Forma 3, utilizar streams
-		System.out.println("Con streams");
-		
-		contactos.stream().
-		          sorted(Comparator.comparing(Contact::getYear).
-				  thenComparing(Comparator.comparing(Contact::getMonth).
-				  thenComparing(Comparator.comparing(Contact::getName)))).
-		          forEach(c->System.out.println(c.getName()+", year: "+ c.getYear()));
+//		System.out.println("Con streams");
+//		
+//		contactos.stream().
+//		          sorted(Comparator.comparing(Contact::getYear).
+//				  thenComparing(Comparator.comparing(Contact::getMonth).
+//				  thenComparing(Comparator.comparing(Contact::getName)))).
+//		          forEach(c->System.out.println(c.getName()+", year: "+ c.getYear()));
 	
+		
+		//MAPAS
+		
+		Map<String,String> mapa= new HashMap<String,String>();
+		
+		mapa.put("1", "HOLA");
+		mapa.put("2", "ADIOS");
+		mapa.put("3", "PEPE");
+		
+		mapa.containsKey("1");
+		mapa.containsValue("PEPE");
+		
+		Set claves=mapa.keySet();
+		Collection values=mapa.values();
+		
+		claves.contains("3");
+		values.contains("PEPE");
+		
+		//Cuando los utilizamos -> clave unica que identifica al objeto
+		// dni o cif, telefono, referencia-> key
+		
+		Map<String, Contact> mapaContactos= new HashMap<String, Contact>();
+		mapaContactos.put(c1.getNif(), c1);
+		mapaContactos.put(c2.getNif(), c2);		
+		mapaContactos.put(c3.getNif(), c3);		
+		mapaContactos.put(c4.getNif(), c4);		
+				
+		//imprimirlos todos
+		
+		Collection<Contact> var = mapaContactos.values();
+		
+		for (Contact contact2 : var) {
+			System.out.println(contact2.getName());
+		}
+		
 	}
+	
+	
+	
 }
 

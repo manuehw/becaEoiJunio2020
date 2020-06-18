@@ -12,6 +12,7 @@ public class Contact {
 
 	private String name;
 	private String surname;
+	private String nif;
 	private Set<String> telephonesSet;
 	private List<String> telephonesList;
 	private Integer year;
