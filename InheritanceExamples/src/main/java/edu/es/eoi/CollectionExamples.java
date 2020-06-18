@@ -159,6 +159,8 @@ public class CollectionExamples {
 		contactos.add(c3);
 		contactos.add(c4);
 		
+		//opcion algo mejor, es declarar el comparator a la hora de llamar al sort, y no meterlo en la entidad
+		
 		Comparator<Contact> cmp = new Comparator<Contact>() {
 			public int compare(Contact o1, Contact o2) {				
 				return o1.getYear().compareTo(o2.getYear());
