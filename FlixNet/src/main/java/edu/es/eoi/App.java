@@ -1,18 +1,28 @@
 package edu.es.eoi;
 
-import java.util.Collection;
-
+import edu.es.eoi.controller.FilmController;
+import edu.es.eoi.controller.PersonController;
 import edu.es.eoi.controller.PlayController;
 import edu.es.eoi.domain.Film;
+import edu.es.eoi.domain.Serie;
+import edu.es.eoi.domain.User;
 import edu.es.eoi.interfaces.Playable;
+import edu.es.eoi.repository.FilmRepository;
+import edu.es.eoi.service.FilmService;
+import edu.es.eoi.service.PersonService;
 import edu.es.eoi.service.PlayService;
 import edu.es.eoi.view.MenuView;
 
 public class App {
 	
-	public static Playable[] playList= new Playable[10];
-	public static PlayService service= new PlayService();
-	public static PlayController controller= new PlayController(service);	
+	public static Playable[] films= new Film[1000];
+	public static Playable[] series= new Serie[1000];
+	public static User[] users= new User[50];
+	public static PlayService playService= new PlayService();
+	public static PlayController playController= new PlayController(playService);
+	public static FilmRepository filmRepository= new FilmRepository();
+	public static FilmService filmService= new FilmService(filmRepository);
+	public static FilmController filmController= new FilmController(filmService);	
 
 	public static void main(String[] args) {	
 		createPlayOffer();
@@ -20,6 +30,7 @@ public class App {
 	}
 	
 	public static void createPlayOffer() {		
+		
 		Film film1= new Film();
 		film1.setName("La Jungla de cristal 1");
 		Film film2= new Film();
@@ -28,20 +39,12 @@ public class App {
 		film3.setName("La Jungla de cristal 3");
 		Film film4= new Film();
 		film4.setName("La Jungla de cristal 4");
-		playList[0]=film1;
-		playList[1]=film2;
-		playList[2]=film3;
-		playList[3]=film4;		
 		
-	}
-	
-	public static void addToPlaylist(Playable playable) {		
-		for (int i = 0; i < playList.length; i++) {
-			  if(playList[i]==null) {
-				  playList[i]=playable;
-				  return;
-			  }
-		}		
+		filmController.addFilm(film1);
+		filmController.addFilm(film2);
+		filmController.addFilm(film3);
+		filmController.addFilm(film4);
+		
 	}
 
 }

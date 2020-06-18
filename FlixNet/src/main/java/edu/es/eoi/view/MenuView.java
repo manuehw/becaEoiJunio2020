@@ -16,10 +16,9 @@ public class MenuView {
 		System.out.println("**********************");
 		System.out.println("");
 		
-		for (int i = 0; i < App.playList.length; i++) {
-			if(App.playList[i]!=null){
-				//TODO cambiar casting
-				System.out.println(i+"-"+((Film)App.playList[i]).getName());
+		for (int i = 0; i < App.films.length; i++) {
+			if(App.films[i]!=null){
+				System.out.println(i+"-"+((Film)App.films[i]).getName());
 			}
 		}
 		
@@ -27,7 +26,7 @@ public class MenuView {
 		Scanner scanner= new Scanner(System.in);
 		int opcion=scanner.nextInt();
 		
-		App.controller.play(App.playList[opcion]);
+		App.playController.play(App.films[opcion]);
 		
 		MenuView.printMenu();
 		
