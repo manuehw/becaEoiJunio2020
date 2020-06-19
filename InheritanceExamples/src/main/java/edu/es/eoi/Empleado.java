@@ -40,6 +40,11 @@ public class Empleado {
 		this.numEmpleado = numEmpleado;
 	}	
 	
+	public void ascender() {
+		Ejecutivo ejecutivo= new Ejecutivo(this.empresa,this.nombre,this.sueldo,this.numEmpleado);
+	    empresa.getEmpleados().add(this.numEmpleado, ejecutivo);
+		
+	}
 	
 	
 }

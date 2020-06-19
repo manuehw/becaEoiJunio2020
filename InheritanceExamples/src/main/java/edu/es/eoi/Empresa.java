@@ -46,7 +46,7 @@ public class Empresa {
 		
 		empresa.empleados.forEach(System.out::println);
 
-		empresa.getEmpleado(0).despedir();
+		empresa.getEmpleado(0).ascender();
 		
 		empresa.empleados.forEach(System.out::println);
 		
