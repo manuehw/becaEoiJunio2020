@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 public class Film implements Playable{
 
-	private Category category;
+	private CategoryEnum category;
 	private String name;
 	private String year;
 	private double duration;

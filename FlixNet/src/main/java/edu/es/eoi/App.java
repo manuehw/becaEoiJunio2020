@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import edu.es.eoi.controller.FilmController;
+import edu.es.eoi.domain.CategoryEnum;
 import edu.es.eoi.domain.Film;
 import edu.es.eoi.domain.Serie;
 import edu.es.eoi.domain.User;
@@ -43,7 +44,7 @@ public class App {
 		filmRepository.create(film1);
 		filmRepository.create(film2);
 		filmRepository.create(film3);
-		filmRepository.create(film4);
+		filmRepository.create(film4);	
 		
 	}
 
