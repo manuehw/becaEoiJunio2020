@@ -21,7 +21,7 @@ public class App {
 	public static Map<String,Serie> series= new TreeMap<String,Serie>();
 	public static Set<User> users= new HashSet<User>();
 	public static PlayService playService= new PlayService();
-	public static FilmRepository filmRepository= new FilmRepository();
+	public static FilmRepository filmRepository= new FilmRepository(films);
 	public static FilmService filmService= new FilmService(filmRepository);
 	public static FilmController filmController= new FilmController(filmService,playService);		
 

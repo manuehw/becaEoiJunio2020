@@ -4,9 +4,17 @@ import java.util.Map;
 
 import edu.es.eoi.App;
 import edu.es.eoi.domain.Film;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
+@AllArgsConstructor
+@Getter
+@Setter
 public class FilmRepository {
 
+	private Map<String,Film> films;
+	
 	public void create(Film film) {	
 		App.films.put(film.getName(), film);
 	}	
