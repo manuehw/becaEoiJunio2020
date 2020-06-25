@@ -1,5 +1,6 @@
 package edu.es.eoi.repository;
 
+import java.io.FileNotFoundException;
 import java.util.Map;
 
 import edu.es.eoi.App;
@@ -19,8 +20,13 @@ public class FilmRepository {
 		App.films.put(film.getName(), film);
 	}	
 	
-	public Film read(String name) {			
-		return App.films.get(name);
+	public Film read(String name) throws FileNotFoundException {	
+		
+		if(App.films.containsKey(name)) {
+			return App.films.get(name);
+		}else {
+			throw new FileNotFoundException("Esta peli no la tengo");
+		}
 	}	
 	
 	public void update(Film film) {		

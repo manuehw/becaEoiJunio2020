@@ -1,7 +1,9 @@
 package edu.es.eoi.controller;
 
+import java.io.FileNotFoundException;
 import java.util.Map;
 
+import edu.es.eoi.App;
 import edu.es.eoi.domain.Film;
 import edu.es.eoi.domain.User;
 import edu.es.eoi.domain.Wishlist;
@@ -19,11 +21,18 @@ public class FilmController {
 		private FilmService filmService;
 		private PlayService playService;
 
-		public void play(String name) {		
-			playService.play(filmService.findByName(name));
+		public void play(String name) {	
+			
+			try {
+				playService.play(filmService.findByName(name));
+			} catch (Exception e) {
+				System.out.println("Pelicula descatalogada");
+				System.out.println(e.getMessage());
+				e.printStackTrace();				
+			}			
 		}
 		
-		public Film findByName(String name) {
+		public Film findByName(String name) throws FileNotFoundException {
 			return filmService.findByName(name);
 		}		
 		

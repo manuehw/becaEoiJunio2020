@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import edu.es.eoi.controller.FilmController;
-import edu.es.eoi.domain.CategoryEnum;
 import edu.es.eoi.domain.Film;
 import edu.es.eoi.domain.Serie;
 import edu.es.eoi.domain.User;
@@ -26,8 +25,9 @@ public class App {
 	public static FilmController filmController= new FilmController(filmService,playService);		
 
 	public static void main(String[] args) {	
-		createPlayOffer();
-		MenuView.printMenu();		
+		createPlayOffer();		
+		MenuView.printMenu();
+		
 	}
 	
 	public static void createPlayOffer() {		

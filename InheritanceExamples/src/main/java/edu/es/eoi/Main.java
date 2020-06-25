@@ -39,12 +39,15 @@ public class Main {
 		else {
 			System.out.println(false);
 		}
-		
+				
 		Pattern pattern= Pattern.compile("[abc]");
 		Matcher matcher= pattern.matcher(hola);		
 		if(matcher.find()) {
 			System.out.println("Si que se encuentra");
 		}
+		
+		Person persona=null;		
+		persona.getName();		
 
 	}
 
