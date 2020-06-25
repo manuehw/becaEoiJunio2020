@@ -9,8 +9,6 @@ import lombok.Setter;
 @Setter
 public class EOIException extends Exception {
 	
-	private static final long serialVersionUID = 1878969622713429380L;
-
 	private Date time;
 
 	public EOIException(String message, Date time) {
